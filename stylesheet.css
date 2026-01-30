@@ -63,50 +63,180 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* ---- Base ---- */
+:root {
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #555;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --border: #e5e2de;
+  --radius: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+body.page {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 2rem 1rem 3rem;
+  min-height: 100vh;
+}
+
 a {
-  color: #1772d0;
+  color: var(--accent);
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
 a:focus,
 a:hover {
-  color: #f09228;
+  color: var(--accent-hover);
   text-decoration: none;
 }
 
-body,
-td,
-th,
-tr,
-p,
-a {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+body.page td,
+body.page th,
+body.page tr,
+body.page p,
+body.page a {
+  font-family: 'DM Sans', 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 strong {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-family: 'DM Sans', 'Lato', Verdana, Helvetica, sans-serif;
+  font-weight: 600;
 }
 
+/* ---- Layout ---- */
+table.layout {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+table.layout > tbody > tr > td {
+  padding: 0;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 2rem 2.5rem;
+}
+
+/* ---- Header / Name ---- */
+.name {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.25rem 0;
+  color: var(--text);
+}
+
+.links {
+  text-align: center;
+  margin: 0 0 1.25rem 0;
+  font-size: 0.95rem;
+}
+
+.links a {
+  font-weight: 500;
+}
+
+/* ---- Profile photo ---- */
+.profile-photo {
+  width: 50%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+/* ---- Sections ---- */
 h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--border);
+  color: var(--text);
+}
+
+td.section {
+  padding: 1.5rem 0 0;
+  width: 100%;
+  vertical-align: middle;
+}
+
+td.section:first-of-type {
+  padding-top: 0.5rem;
+}
+
+td.section p {
+  margin: 0 0 0.75rem 0;
+  color: var(--text);
+}
+
+/* ---- Publications ---- */
+td.publications {
+  padding-top: 1.75rem;
+}
+
+.publication {
+  margin-bottom: 1.25rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--border);
+}
+
+.publication:last-child {
+  margin-bottom: 0;
+}
+
+.publication strong a {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.publication strong a:hover {
+  color: var(--accent);
+}
+
+.publication em {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ---- Footer ---- */
+td.footer {
+  padding: 2rem 0 0;
+  border-top: 1px solid var(--border);
+  margin-top: 0.5rem;
+}
+
+td.footer p {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-muted);
   margin: 0;
-  font-weight: normal;
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 22px;
 }
 
 .papertitle {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.name {
-  padding-top: 20px;
-  margin: 0;
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 32px;
+  font-family: 'DM Sans', 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .one {
@@ -135,8 +265,28 @@ span.highlight {
 }
 
 .colored-box {
-    color: black;
-    padding: 20px;
-    display: inline-block;
-    border-radius: 10px;
+  color: black;
+  padding: 20px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  body.page {
+    padding: 1rem 0.75rem 2rem;
+  }
+  table.layout > tbody > tr > td {
+    padding: 1.5rem 1.25rem;
+  }
+  .name {
+    font-size: 1.65rem;
+  }
+  .profile-photo {
+    width: 60%;
+    margin: 0 auto;
+  }
+  .publication {
+    padding-left: 0.75rem;
+  }
 }
