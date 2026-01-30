@@ -89,14 +89,15 @@ body.page {
 }
 
 a {
-  color: var(--accent);
+  color: #000;
   text-decoration: none;
+  font-weight: bold;
   transition: color 0.15s ease;
 }
 
 a:focus,
 a:hover {
-  color: var(--accent-hover);
+  color: #2563eb;
   text-decoration: none;
 }
 
@@ -225,8 +226,35 @@ td.publications {
 
 .publication {
   margin-bottom: 1.25rem;
-  padding-left: 1rem;
-  border-left: 3px solid var(--border);
+  padding-left: calc(150px + 1rem + 3px + 1rem);
+  position: relative;
+  min-height: 150px;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.publication::before {
+  content: '';
+  position: absolute;
+  left: calc(150px + 1rem);
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--border);
+}
+
+.publication-img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 150px;
+  max-height: 250px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  box-sizing: border-box;
 }
 
 .publication:last-child {
@@ -234,17 +262,17 @@ td.publications {
 }
 
 .publication strong a {
-  font-weight: 600;
-  color: var(--text);
+  font-weight: bold;
+  color: #000;
 }
 
 .publication strong a:hover {
-  color: var(--accent);
+  color: #2563eb;
 }
 
 .publication em {
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 /* ---- Footer ---- */
@@ -269,7 +297,7 @@ td.footer a {
 }
 
 td.footer a:hover {
-  color: #333;
+  color: #2563eb;
 }
 
 .papertitle {
@@ -329,5 +357,8 @@ span.highlight {
   }
   .publication {
     padding-left: 0.75rem;
+  }
+  .publication-img {
+    max-width: 120px;
   }
 }
