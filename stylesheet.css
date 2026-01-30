@@ -359,6 +359,39 @@ span.highlight {
     padding-left: 0.75rem;
   }
   .publication-img {
-    max-width: 120px;
+    display: none;
+  }
+}
+
+/* Hide thumbnails on mobile devices (portrait phones) */
+@media (max-width: 767px) {
+  .publication-img {
+    display: none !important;
+  }
+  .publication {
+    padding-left: 1rem;
+  }
+  .publication::before {
+    left: 0;
+  }
+}
+
+/* Show thumbnails on tablets only in landscape mode */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .publication-img {
+    display: block !important;
+  }
+}
+
+/* Hide thumbnails on tablets in portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .publication-img {
+    display: none !important;
+  }
+  .publication {
+    padding-left: 1rem;
+  }
+  .publication::before {
+    left: 0;
   }
 }
