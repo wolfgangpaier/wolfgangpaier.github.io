@@ -89,7 +89,7 @@ body.page {
 }
 
 a {
-  color: #000;
+  color: #5a7d9a;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.15s ease;
@@ -263,7 +263,7 @@ td.publications {
 
 .publication strong a {
   font-weight: bold;
-  color: #000;
+  color: #5a7d9a;
 }
 
 .publication strong a:hover {
@@ -292,7 +292,7 @@ td.footer p {
 
 td.footer a {
   font-size: 0.75rem;
-  color: #000;
+  color: #5a7d9a;
   font-weight: bold;
 }
 
